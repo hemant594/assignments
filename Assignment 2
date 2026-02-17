@@ -1,0 +1,287 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "667596c5",
+   "metadata": {},
+   "source": [
+    "Ans.1 Python list usuage is more compared to NumPy Array, as Python list stores references to objects, can store mixed types whereas Numpy Array stores elements in contiguous memory, usually stores same data type "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "4914c1a5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "List Multiplication: [5, 12, 21, 32]\n",
+      "NumPy Multiplication: [ 5 12 21 32]\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "list1 = [1, 2, 3, 4]\n",
+    "list2 = [5, 6, 7, 8]\n",
+    "\n",
+    "list_result = [a * b for a, b in zip(list1, list2)]\n",
+    "print(\"List Multiplication:\", list_result)\n",
+    "\n",
+    "arr1 = np.array([1, 2, 3, 4])\n",
+    "arr2 = np.array([5, 6, 7, 8])\n",
+    "\n",
+    "array_result = arr1 * arr2\n",
+    "print(\"NumPy Multiplication:\", array_result)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cb6d4827",
+   "metadata": {},
+   "source": [
+    "Ans.2 Broadcasting allows NumPy to perform operations on arrays of different shapes by automatically expanding the smaller array."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "cb4e853b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[11 22 33]\n",
+      " [14 25 36]\n",
+      " [17 28 39]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "A = np.array([[1, 2, 3],\n",
+    "              [4, 5, 6],\n",
+    "              [7, 8, 9]])\n",
+    "B = np.array([10, 20, 30])\n",
+    "result = A + B\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fd18b1f6",
+   "metadata": {},
+   "source": [
+    "Ans.3 Missing values represent absent data, represented by: NaN and None."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "667dea97",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "    Name  Math  Science\n",
+      "0  Rahul  80.0     85.0\n",
+      "1   Neha   NaN     88.0\n",
+      "2   Amit  75.0      NaN\n",
+      "3  Priya  90.0     92.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "data = {\n",
+    "    \"Name\": [\"Rahul\", \"Neha\", \"Amit\", \"Priya\"],\n",
+    "    \"Math\": [80, np.nan, 75, 90],\n",
+    "    \"Science\": [85, 88, np.nan, 92]\n",
+    "}\n",
+    "df = pd.DataFrame(data)\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "a9060819",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Name</th>\n",
+       "      <th>Math</th>\n",
+       "      <th>Science</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Rahul</td>\n",
+       "      <td>80.000000</td>\n",
+       "      <td>85.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Neha</td>\n",
+       "      <td>81.666667</td>\n",
+       "      <td>88.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Amit</td>\n",
+       "      <td>75.000000</td>\n",
+       "      <td>88.333333</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Priya</td>\n",
+       "      <td>90.000000</td>\n",
+       "      <td>92.000000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    Name       Math    Science\n",
+       "0  Rahul  80.000000  85.000000\n",
+       "1   Neha  81.666667  88.000000\n",
+       "2   Amit  75.000000  88.333333\n",
+       "3  Priya  90.000000  92.000000"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df[\"Math\"] = df[\"Math\"].fillna(df[\"Math\"].mean())\n",
+    "df[\"Science\"] = df[\"Science\"].fillna(df[\"Science\"].mean())\n",
+    "df\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0c1fc9a8",
+   "metadata": {},
+   "source": [
+    "Ans.4 Boolean Indexing filters data using True/False conditions."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d94ae84c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "  Name  Age Department  Salary  Experience\n",
+      "0    A   22         IT   50000           1\n",
+      "2    C   21         IT   60000           2\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = {\n",
+    "    \"Name\": [\"A\", \"B\", \"C\", \"D\", \"E\"],\n",
+    "    \"Age\": [22, 25, 21, 23, 26],\n",
+    "    \"Department\": [\"IT\", \"HR\", \"IT\", \"Finance\", \"HR\"],\n",
+    "    \"Salary\": [50000, 40000, 60000, 45000, 70000],\n",
+    "    \"Experience\": [1, 3, 2, 4, 5]\n",
+    "}\n",
+    "df = pd.DataFrame(data)\n",
+    "filtered = df[(df[\"Salary\"] > 45000) & (df[\"Department\"] == \"IT\")]\n",
+    "print(filtered)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "21868f5e",
+   "metadata": {},
+   "source": [
+    "Ans.5 groupby() groups data based on categorical columns and applies aggregation functions."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8e22f7a6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Department\n",
+      "Finance    45000.0\n",
+      "HR         55000.0\n",
+      "IT         55000.0\n",
+      "Name: Salary, dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = {\n",
+    "    \"Employee\": [\"A\", \"B\", \"C\", \"D\", \"E\"],\n",
+    "    \"Department\": [\"IT\", \"HR\", \"IT\", \"Finance\", \"HR\"],\n",
+    "    \"Salary\": [50000, 40000, 60000, 45000, 70000]\n",
+    "}\n",
+    "df = pd.DataFrame(data)\n",
+    "avg_salary = df.groupby(\"Department\")[\"Salary\"].mean()\n",
+    "print(avg_salary)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
